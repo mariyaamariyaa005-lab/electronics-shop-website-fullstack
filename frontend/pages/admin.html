@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - SMA Electronics</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="./admin.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+
+            <a href="../index.html" class="logo">SMA Electronics</a>
+
+            <ul class="nav-links">
+                <li><a href="../index.html">Back to Store</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main class="admin-page">
+
+        <section class="section admin-section">
+
+            <h2 id="formTitle">Add a Product</h2>
+
+            <form id="productForm" class="admin-form">
+
+                <input type="hidden" id="productId">
+
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="">Select a category</option>
+                    <option value="DTH & Recharge">DTH & Recharge</option>
+                    <option value="Mobile Sales & Service">Mobile Sales & Service</option>
+                    <option value="Home Appliances">Home Appliances</option>
+                    <option value="Electronic Accessories">Electronic Accessories</option>
+                </select>
+
+                <label for="price">Price (₹)</label>
+                <input type="number" id="price" min="0" step="1" required>
+
+                <label for="description">Description</label>
+                <textarea id="description" rows="3" required></textarea>
+
+                <label for="imageUrl">Image URL</label>
+                <input type="text" id="imageUrl" placeholder="https://placehold.co/400x300?text=Product">
+
+                <div class="form-actions">
+                    <button type="submit" class="btn" id="submitBtn">Add Product</button>
+                    <button type="button" class="btn btn-secondary" id="cancelEditBtn" hidden>Cancel</button>
+                </div>
+
+                <p id="formMessage" class="form-message"></p>
+
+            </form>
+
+        </section>
+
+
+        <section class="section admin-section">
+
+            <h2>Existing Products</h2>
+
+            <div class="admin-table-wrapper">
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTableBody">
+                        <tr><td colspan="4">Loading products...</td></tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>&copy; 2026 SMA Electronics & Home Appliances. Admin panel.</p>
+    </footer>
+
+    <script src="./admin.js"></script>
+
+</body>
+</html>
