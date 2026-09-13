@@ -513,7 +513,7 @@ footer {
 
     padding: 14px 18px;
 
-    border: 1px solid #ddd;
+    border: 1px solid #b88787;
     border-radius: 8px;
 
     font-size: 16px;
@@ -524,7 +524,7 @@ footer {
 }
 
 .search-box input:focus {
-    border-color: #1d3557;
+    border-color: #35609d;
 
     box-shadow: 0 0 0 3px rgba(29, 53, 87, 0.1);
 }

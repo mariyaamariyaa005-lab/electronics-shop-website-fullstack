@@ -4,6 +4,20 @@
 
 const API_BASE_URL = "http://localhost:8080/api/products";
 
+// Redirect to login if there's no stored session
+const authToken = sessionStorage.getItem("smaAdminAuth");
+
+if (!authToken) {
+    window.location.href = "./admin-login.html";
+}
+
+function authHeaders() {
+    return {
+        "Authorization": `Basic ${authToken}`,
+        "Content-Type": "application/json"
+    };
+}
+
 
 // ================================
 // ELEMENT REFERENCES
@@ -154,9 +168,15 @@ async function handleFormSubmit(event) {
 
         const response = await fetch(url, {
             method: method,
-            headers: { "Content-Type": "application/json" },
+            headers: authHeaders(),
             body: JSON.stringify(productData)
         });
+
+        if (response.status === 401) {
+            sessionStorage.removeItem("smaAdminAuth");
+            window.location.href = "./admin-login.html";
+            return;
+        }
 
         if (!response.ok) {
             throw new Error("Server responded with " + response.status);
@@ -207,7 +227,16 @@ async function handleDeleteClick(id) {
 
     try {
 
-        const response = await fetch(`${API_BASE_URL}/${id}`, { method: "DELETE" });
+        const response = await fetch(`${API_BASE_URL}/${id}`, {
+            method: "DELETE",
+            headers: authHeaders()
+        });
+
+        if (response.status === 401) {
+            sessionStorage.removeItem("smaAdminAuth");
+            window.location.href = "./admin-login.html";
+            return;
+        }
 
         if (!response.ok) {
             throw new Error("Server responded with " + response.status);
@@ -233,6 +262,14 @@ async function handleDeleteClick(id) {
 productForm.addEventListener("submit", handleFormSubmit);
 
 cancelEditBtn.addEventListener("click", resetForm);
+
+const logoutBtn = document.getElementById("logoutBtn");
+if (logoutBtn) {
+    logoutBtn.addEventListener("click", function () {
+        sessionStorage.removeItem("smaAdminAuth");
+        window.location.href = "./admin-login.html";
+    });
+}
 
 
 // ================================

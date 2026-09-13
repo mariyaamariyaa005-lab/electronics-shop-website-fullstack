@@ -135,3 +135,22 @@
 .delete-btn {
     color: #b3402a;
 }
+
+.login-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 380px;
+}
+
+.login-form h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
