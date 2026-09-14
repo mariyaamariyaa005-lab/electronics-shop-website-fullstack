@@ -2,7 +2,7 @@
 // CONFIG
 // ================================
 
-const API_BASE_URL = "http://localhost:8080/api/products";
+const API_BASE_URL = "https://electronics-shop-website-fullstack-1.onrender.com/api/products";
 
 // Redirect to login if there's no stored session
 const authToken = sessionStorage.getItem("smaAdminAuth");

@@ -3,7 +3,7 @@
 // ================================
 
 // Change this if your backend runs on a different host/port
-const API_BASE_URL = "http://localhost:8080/api/products";
+const API_BASE_URL = "https://electronics-shop-website-fullstack-1.onrender.com/api/products";
 
 
 // ================================

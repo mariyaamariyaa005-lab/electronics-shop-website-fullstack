@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "https://electronics-shop-website-fullstack-1.onrender.com";
 
 const loginForm = document.getElementById("loginForm");
 const usernameInput = document.getElementById("username");
