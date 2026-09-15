@@ -409,8 +409,37 @@ footer {
     }
 
     .product-grid {
-        grid-template-columns: 1fr;
-    }
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.product-card {
+    padding: 12px;
+}
+
+.product-image {
+    height: 110px;
+}
+
+.product-card h3 {
+    font-size: 15px;
+}
+
+.product-card p {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 15px !important;
+}
+
+.product-card .btn {
+    padding: 8px 14px;
+    font-size: 13px;
+    width: 100%;
+    text-align: center;
+}
 
     .section {
         padding: 60px 20px;
